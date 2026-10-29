@@ -1,0 +1,557 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Green Opticals Inc. | Eye Exams • Eyewear • Contact Lenses</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        brand: {
+                            50: '#f0fdf4',
+                            100: '#dcfce7',
+                            500: '#10b981',
+                            600: '#2e7d32',
+                            700: '#1b5e20',
+                            800: '#14532d',
+                            dark: '#1f2937'
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+        }
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .text-gradient {
+            background: linear-gradient(135deg, #2e7d32 0%, #10b981 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f5f9;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #2e7d32;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Top Announcement Bar -->
+    <div class="bg-brand-700 text-emerald-100 text-xs sm:text-sm py-2.5 px-4">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-2 text-center sm:text-left">
+            <div class="flex items-center gap-6">
+                <a href="tel:4166663486" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-phone text-emerald-400"></i>
+                    <span class="font-semibold">416 666 3486</span>
+                </a>
+                <a href="mailto:generalopticals@gmail.com" class="hover:text-white transition-colors flex items-center gap-2">
+                    <i class="fa-solid fa-envelope text-emerald-400"></i>
+                    <span class="font-semibold">generalopticals@gmail.com</span>
+                </a>
+            </div>
+            <div class="text-emerald-200 text-xs font-medium">
+                Eye Exams • Eyewear • Contact Lenses
+            </div>
+        </div>
+    </div>
+
+    <!-- Header / Navigation -->
+    <header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200/80 shadow-sm" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center gap-3 group">
+                    <div class="w-11 h-11 rounded-2xl bg-gradient-to-tr from-brand-700 to-brand-600 flex items-center justify-center text-white shadow-md group-hover:scale-105 transition-transform">
+                        <i class="fa-solid fa-glasses text-xl"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="text-xl font-extrabold tracking-tight text-slate-900 leading-none">
+                            GREEN <span class="text-brand-600">OPTICALS</span> INC.
+                        </span>
+                        <span class="text-[10px] font-bold uppercase tracking-widest text-slate-500 mt-1">
+                            Eye Exams • Eyewear • Contact Lenses
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden lg:flex items-center gap-8 text-sm font-semibold text-slate-700">
+                    <a href="#home" class="hover:text-brand-600 transition-colors">Home</a>
+                    <a href="#services" class="hover:text-brand-600 transition-colors">Services</a>
+                    <a href="#gallery" class="hover:text-brand-600 transition-colors">Gallery</a>
+                    <a href="#appointment" class="hover:text-brand-600 transition-colors">Book Appointment</a>
+                    <a href="#contact" class="hover:text-brand-600 transition-colors">Contact</a>
+                </nav>
+
+                <!-- Quick Call Action Button -->
+                <div class="hidden lg:flex items-center gap-4">
+                    <a href="tel:4166663486" class="inline-flex items-center justify-center gap-2 px-5 py-2.5 rounded-full font-bold text-sm text-white bg-brand-600 hover:bg-brand-700 shadow-md hover:shadow-lg transition-all transform hover:-translate-y-0.5">
+                        <i class="fa-solid fa-phone text-xs"></i>
+                        Call 416 666 3486
+                    </a>
+                </div>
+
+                <!-- Mobile Navigation Menu Button -->
+                <button id="mobile-menu-btn" class="lg:hidden p-2 rounded-xl text-slate-700 hover:bg-slate-100 focus:outline-none" aria-label="Toggle Navigation Menu">
+                    <i class="fa-solid fa-bars text-2xl" id="menu-icon"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="hidden lg:hidden border-t border-slate-100 bg-white px-6 pt-4 pb-6 shadow-xl">
+            <div class="flex flex-col gap-4 font-semibold text-slate-700">
+                <a href="#home" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-600">Home</a>
+                <a href="#services" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-600">Services</a>
+                <a href="#gallery" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-600">Gallery</a>
+                <a href="#appointment" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-600">Book Appointment</a>
+                <a href="#contact" class="mobile-link py-2 border-b border-slate-100 hover:text-brand-600">Contact</a>
+                <a href="tel:4166663486" class="mobile-link mt-2 text-center py-3 rounded-xl font-bold text-white bg-brand-600 shadow-md">
+                    <i class="fa-solid fa-phone mr-2"></i>Call 416 666 3486
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="relative bg-slate-900 text-white overflow-hidden py-20 lg:py-28">
+        <!-- Accent Glows -->
+        <div class="absolute -top-20 -left-20 w-96 h-96 bg-brand-600/30 rounded-full blur-3xl pointer-events-none"></div>
+        <div class="absolute bottom-0 right-0 w-96 h-96 bg-brand-500/20 rounded-full blur-3xl pointer-events-none"></div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Text -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-emerald-500/10 border border-emerald-500/20 text-emerald-400 text-xs sm:text-sm font-semibold">
+                        <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                        Green Opticals Inc.
+                    </div>
+
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight leading-tight">
+                        Clear Vision, <br/>
+                        <span class="text-gradient">Fresh Perspective.</span>
+                    </h1>
+
+                    <p class="text-slate-300 text-base sm:text-lg max-w-2xl mx-auto lg:mx-0 font-normal leading-relaxed">
+                        Welcome to <strong class="text-white">Green Opticals Inc.</strong> Your trusted destination for comprehensive eye examinations, stylish quality eyewear, and comfortable contact lens fittings.
+                    </p>
+
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#appointment" class="w-full sm:w-auto px-8 py-4 rounded-full bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-700/30 hover:scale-105 transition-all text-center">
+                            Book an Exam
+                            <i class="fa-solid fa-arrow-right ml-2 text-sm"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-full bg-slate-800 border border-slate-700 text-white font-semibold text-base hover:bg-slate-700 transition-all text-center">
+                            Contact Us
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Image -->
+                <div class="lg:col-span-5">
+                    <div class="relative mx-auto max-w-md lg:max-w-none">
+                        <div class="rounded-3xl overflow-hidden shadow-2xl border-2 border-slate-800">
+                            <img src="https://images.unsplash.com/photo-1572635196237-14b3f281503f?auto=format&fit=crop&w=1000&q=80" 
+                                 alt="Modern Stylish Frames at Green Opticals Inc." 
+                                 class="w-full h-[420px] object-cover hover:scale-105 transition-transform duration-700"
+                                 onerror="this.src='https://placehold.co/800x1000/1f2937/2e7d32?text=Green+Opticals+Inc.'">
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Core Services Grid -->
+    <section id="services" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-brand-600 font-bold text-xs tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Our Offerings</span>
+                <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-3">Core Optical Services</h2>
+                <p class="text-slate-600 mt-3 text-base">Professional care and prescription solutions dedicated to your visual clarity.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                
+                <!-- Service 1: Comprehensive Eye Exams -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Eye Exams</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Comprehensive visual acuity assessments and eye health evaluations tailored for individuals and families.
+                        </p>
+                    </div>
+                    <a href="#appointment" onclick="preselectService('Eye Exams')" class="text-brand-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        Schedule Exam <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 2: Designer Eyewear & Frames -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-glasses"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Eyewear & Frames</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            A curated collection of modern, durable, and comfortable frame styles designed for everyday clarity and personal taste.
+                        </p>
+                    </div>
+                    <a href="#gallery" class="text-brand-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        Explore Gallery <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </a>
+                </div>
+
+                <!-- Service 3: Contact Lenses -->
+                <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 border border-slate-100 flex flex-col justify-between">
+                    <div>
+                        <div class="w-14 h-14 rounded-2xl bg-brand-50 text-brand-600 flex items-center justify-center text-2xl font-bold mb-6">
+                            <i class="fa-solid fa-circle-dot"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-slate-900 mb-3">Contact Lenses</h3>
+                        <p class="text-slate-600 text-sm leading-relaxed mb-6">
+                            Quality prescription contact lenses and professional fitting guidance for optimal daily comfort and vision.
+                        </p>
+                    </div>
+                    <a href="#appointment" onclick="preselectService('Contact Lenses')" class="text-brand-600 font-bold text-sm inline-flex items-center gap-2 hover:gap-3 transition-all">
+                        Book Lens Fitting <i class="fa-solid fa-chevron-right text-xs"></i>
+                    </a>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Curated Gallery / Showcase -->
+    <section id="gallery" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-brand-600 font-bold text-xs tracking-wider uppercase bg-brand-50 px-3 py-1 rounded-full border border-brand-100">Product Showcase</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-slate-900 mt-2">Frames & Eyewear Showcase</h2>
+                    <p class="text-slate-600 mt-2 text-base">Browse through our quality frame selections, sunglasses, and contact lenses.</p>
+                </div>
+
+                <!-- Gallery Filter Buttons -->
+                <div class="flex flex-wrap gap-2 bg-slate-100 p-1.5 rounded-2xl self-start md:self-auto">
+                    <button onclick="filterGallery('all')" id="filter-all" class="gallery-tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm bg-white text-slate-900 shadow-sm transition-all">All</button>
+                    <button onclick="filterGallery('frames')" id="filter-frames" class="gallery-tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:text-slate-900 transition-all">Frames</button>
+                    <button onclick="filterGallery('sunglasses')" id="filter-sunglasses" class="gallery-tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:text-slate-900 transition-all">Sunglasses</button>
+                    <button onclick="filterGallery('lenses')" id="filter-lenses" class="gallery-tab-btn px-5 py-2.5 rounded-xl font-semibold text-sm text-slate-600 hover:text-slate-900 transition-all">Lenses</button>
+                </div>
+            </div>
+
+            <!-- Image Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6" id="gallery-grid">
+                
+                <!-- Item 1 -->
+                <div class="gallery-item frames bg-slate-50 rounded-2xl p-4 border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-56 rounded-xl bg-white overflow-hidden mb-4 flex items-center justify-center p-2">
+                        <img src="https://images.unsplash.com/photo-1591076482161-42ce6da69f67?auto=format&fit=crop&w=600&q=80" 
+                             alt="Modern Optical Frames" 
+                             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/600x400/f8fafc/2e7d32?text=Optical+Frames'">
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Prescription Optical Frame</h4>
+                    <p class="text-slate-500 text-xs mt-1">Lightweight acetate optical design.</p>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="gallery-item sunglasses bg-slate-50 rounded-2xl p-4 border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-56 rounded-xl bg-white overflow-hidden mb-4 flex items-center justify-center p-2">
+                        <img src="https://images.unsplash.com/photo-1511499767150-a48a237f0083?auto=format&fit=crop&w=600&q=80" 
+                             alt="Polarized Sunglasses" 
+                             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/600x400/f8fafc/2e7d32?text=Sunglasses'">
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Polarized Sunwear</h4>
+                    <p class="text-slate-500 text-xs mt-1">UV protection tint lenses.</p>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="gallery-item frames bg-slate-50 rounded-2xl p-4 border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-56 rounded-xl bg-white overflow-hidden mb-4 flex items-center justify-center p-2">
+                        <img src="https://images.unsplash.com/photo-1574258495973-f010dfbb5371?auto=format&fit=crop&w=600&q=80" 
+                             alt="Classic Frames" 
+                             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/600x400/f8fafc/2e7d32?text=Classic+Frames'">
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Classic Ergonomic Frame</h4>
+                    <p class="text-slate-500 text-xs mt-1">Sleek daily wear comfort.</p>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="gallery-item lenses bg-slate-50 rounded-2xl p-4 border border-slate-200/80 hover:shadow-lg transition-all group">
+                    <div class="h-56 rounded-xl bg-white overflow-hidden mb-4 flex items-center justify-center p-2">
+                        <img src="https://images.unsplash.com/photo-1584308666744-24d5c474f2ae?auto=format&fit=crop&w=600&q=80" 
+                             alt="Contact Lenses" 
+                             class="max-h-full object-contain group-hover:scale-105 transition-transform duration-300"
+                             onerror="this.src='https://placehold.co/600x400/f8fafc/2e7d32?text=Contact+Lenses'">
+                    </div>
+                    <h4 class="font-bold text-slate-900 text-base">Prescription Contact Lenses</h4>
+                    <p class="text-slate-500 text-xs mt-1">Hydrating daily and monthly options.</p>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Appointment / Inquiry Section -->
+    <section id="appointment" class="py-20 bg-slate-900 text-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Direct Details Panel -->
+                <div class="lg:col-span-5 space-y-6">
+                    <span class="text-emerald-400 font-bold text-xs tracking-wider uppercase bg-emerald-950 px-3 py-1 rounded-full border border-emerald-800">Direct Booking</span>
+                    <h2 class="text-3xl sm:text-4xl font-extrabold text-white leading-tight">
+                        Schedule an Appointment
+                    </h2>
+                    <p class="text-slate-300 text-base leading-relaxed">
+                        Fill out the inquiry form to reserve your appointment time, or connect with us directly using our contact details below.
+                    </p>
+
+                    <div class="space-y-4 pt-4">
+                        <a href="tel:4166663486" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-phone"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Phone</p>
+                                <p class="text-lg font-bold text-white">416 666 3486</p>
+                            </div>
+                        </a>
+
+                        <a href="mailto:generalopticals@gmail.com" class="flex items-center gap-4 p-4 rounded-2xl bg-slate-800 hover:bg-slate-700/80 border border-slate-700 transition-all group">
+                            <div class="w-12 h-12 rounded-xl bg-brand-600 text-white flex items-center justify-center text-xl shrink-0 group-hover:scale-110 transition-transform">
+                                <i class="fa-solid fa-envelope"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-slate-400 uppercase font-bold tracking-wider">Email</p>
+                                <p class="text-base font-bold text-white break-all">generalopticals@gmail.com</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Booking / Inquiry Form -->
+                <div class="lg:col-span-7">
+                    <div class="bg-white rounded-3xl p-6 sm:p-10 text-slate-900 shadow-2xl">
+                        <h3 class="text-2xl font-bold text-slate-900 mb-2">Book Your Visit</h3>
+                        <p class="text-slate-500 text-xs sm:text-sm mb-6">Send us your preferred date and service request.</p>
+
+                        <form id="appointment-form" onsubmit="handleAppointmentSubmit(event)" class="space-y-4">
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Full Name *</label>
+                                    <input type="text" id="app-name" required placeholder="John Doe" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all text-sm">
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Phone Number *</label>
+                                    <input type="tel" id="app-phone" required placeholder="416 000 0000" class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Service Selected *</label>
+                                    <select id="app-service" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all text-sm bg-white">
+                                        <option value="Eye Exams">Eye Exams</option>
+                                        <option value="Eyewear & Frames">Eyewear & Frames</option>
+                                        <option value="Contact Lenses">Contact Lenses</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Preferred Date *</label>
+                                    <input type="date" id="app-date" required class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all text-sm">
+                                </div>
+                            </div>
+
+                            <div>
+                                <label class="block text-xs font-bold text-slate-700 uppercase tracking-wider mb-2">Notes / Details</label>
+                                <textarea id="app-notes" rows="3" placeholder="Specify any vision requests or notes..." class="w-full px-4 py-3 rounded-xl border border-slate-200 focus:border-brand-600 focus:ring-2 focus:ring-brand-500/20 outline-none transition-all text-sm resize-none"></textarea>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-brand-600 hover:bg-brand-700 text-white font-bold text-base shadow-lg shadow-brand-600/30 transition-all">
+                                Submit Request
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Direct Contact Section -->
+    <section id="contact" class="py-16 bg-slate-50 border-t border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl font-extrabold text-slate-900 mb-4">Green Opticals Inc.</h2>
+            <p class="text-slate-600 max-w-xl mx-auto mb-8 text-sm">Eye Exams • Eyewear • Contact Lenses</p>
+            
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-6">
+                <a href="tel:4166663486" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 shadow-sm text-slate-900 font-bold hover:border-brand-600 hover:text-brand-600 transition-all">
+                    <i class="fa-solid fa-phone text-brand-600"></i>
+                    416 666 3486
+                </a>
+                <a href="mailto:generalopticals@gmail.com" class="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-white border border-slate-200 shadow-sm text-slate-900 font-bold hover:border-brand-600 hover:text-brand-600 transition-all">
+                    <i class="fa-solid fa-envelope text-brand-600"></i>
+                    generalopticals@gmail.com
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-slate-950 text-slate-400 py-12 border-t border-slate-800">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+                <!-- Branding -->
+                <div class="flex items-center gap-3">
+                    <div class="w-9 h-9 rounded-xl bg-brand-600 flex items-center justify-center text-white">
+                        <i class="fa-solid fa-glasses"></i>
+                    </div>
+                    <span class="text-lg font-extrabold text-white tracking-tight">GREEN OPTICALS INC.</span>
+                </div>
+
+                <!-- Footer Links -->
+                <div class="flex flex-wrap gap-6 text-sm">
+                    <a href="#home" class="hover:text-white transition-colors">Home</a>
+                    <a href="#services" class="hover:text-white transition-colors">Services</a>
+                    <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                    <a href="#appointment" class="hover:text-white transition-colors">Book Appointment</a>
+                    <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                </div>
+
+                <!-- Copyright -->
+                <p class="text-xs text-slate-500">
+                    &copy; <span id="year"></span> Green Opticals Inc. All Rights Reserved.
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Toast UI Notification -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 bg-slate-900 text-white px-6 py-4 rounded-2xl shadow-2xl flex items-center gap-3 border border-slate-700 transform translate-y-28 opacity-0 transition-all duration-300 pointer-events-none">
+        <div class="w-8 h-8 rounded-full bg-brand-600 text-white flex items-center justify-center shrink-0">
+            <i class="fa-solid fa-check"></i>
+        </div>
+        <div>
+            <h5 class="font-bold text-sm text-white" id="toast-title">Success</h5>
+            <p class="text-xs text-slate-300" id="toast-msg">Request sent successfully.</p>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('year').textContent = new Date().getFullYear();
+
+        // Mobile Nav Toggle
+        const mobileBtn = document.getElementById('mobile-menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        const menuIcon = document.getElementById('menu-icon');
+
+        mobileBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+            if (mobileMenu.classList.contains('hidden')) {
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            } else {
+                menuIcon.classList.remove('fa-bars');
+                menuIcon.classList.add('fa-xmark');
+            }
+        });
+
+        document.querySelectorAll('.mobile-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+                menuIcon.classList.remove('fa-xmark');
+                menuIcon.classList.add('fa-bars');
+            });
+        });
+
+        // Gallery Filtering
+        function filterGallery(category) {
+            const items = document.querySelectorAll('.gallery-item');
+            const buttons = document.querySelectorAll('.gallery-tab-btn');
+
+            buttons.forEach(btn => {
+                btn.classList.remove('bg-white', 'text-slate-900', 'shadow-sm');
+                btn.classList.add('text-slate-600');
+            });
+
+            const activeBtn = document.getElementById(`filter-${category}`);
+            if (activeBtn) {
+                activeBtn.classList.add('bg-white', 'text-slate-900', 'shadow-sm');
+                activeBtn.classList.remove('text-slate-600');
+            }
+
+            items.forEach(item => {
+                if (category === 'all' || item.classList.contains(category)) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
+        function preselectService(serviceName) {
+            const select = document.getElementById('app-service');
+            if (select) {
+                select.value = serviceName;
+            }
+        }
+
+        function handleAppointmentSubmit(e) {
+            e.preventDefault();
+            const name = document.getElementById('app-name').value;
+            showToast('Request Submitted', `Thank you, ${name}. We have received your booking request!`);
+            document.getElementById('appointment-form').reset();
+        }
+
+        function showToast(title, msg) {
+            const toast = document.getElementById('toast');
+            document.getElementById('toast-title').textContent = title;
+            document.getElementById('toast-msg').textContent = msg;
+
+            toast.classList.remove('translate-y-28', 'opacity-0', 'pointer-events-none');
+            setTimeout(() => {
+                toast.classList.add('translate-y-28', 'opacity-0', 'pointer-events-none');
+            }, 4000);
+        }
+    </script>
+</body>
+</html>
